@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+
+<body>
+    <div class="login-wrap" style="margin-top: 40px;">
+        <div class="login-html">
+
+            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign
+                In</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+            <div class="login-form" style="margin-top: 15px;">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="user" class="label">Username</label>
+                        <input id="user1" type="text" class="input">
+                    </div>
+                    <div class="group">
+                        <label for="pass" class="label">Password</label>
+                        <input id="pass1" type="password" class="input" data-type="password">
+                    </div>
+
+                    <div id="signIn" class="group">
+                        <input type="button" class="button signIn" value="Sign In">
+                    </div>
+                    <p style="color:red;" id="feedback"></p>
+                    <div class="hr"></div>
+                    <a href="index.html"><button
+                            style="border-radius: 10px; padding:3px 7px; color:white; margin-top: 0px; background-color: #1161ee; border: none;"
+                            class="btn btn-sm btn-primary">Home Page</button></a>
+                </div>
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <div class="group">
+                            <label for="pass" class="label">Username</label>
+                            <input id="username" type="text" class="input" data-type="text">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Password</label>
+                            <input id="password" type="password" class="input">
+                        </div>
+                        <div class="group">
+                            <label for="pass" class="label">Telefon</label>
+                            <input id="telefon" type="number" class="input">
+                        </div>
+                        <div class="group" id="signUp">
+                            <input type="button" class="button" value="Sign Up">
+                        </div>
+                        <div class="hr"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>
+<script>
+    $(document).ready(function () {
+        $("#signUp").on('click', function () {
+            var korisnicko_ime = document.getElementById("username").value;
+            var lozinka = document.getElementById("password").value;
+            var telefon = document.getElementById("telefon").value;
+            $.ajax({
+                url: 'operacije/registracija.php',
+                type: 'POST',
+                data: { korisnicko_ime: korisnicko_ime, lozinka: lozinka, telefon: telefon },
+                success: function () {
+                    window.location.replace("http://localhost/automobili/index.html");
+                }
+            });
+        });
+        $("#signIn").on('click', function () {
+            console.log("usao");
+            var korisnicko_ime = document.getElementById("user1").value;
+            var lozinka = document.getElementById("pass1").value;
+            $.ajax({
+                url: 'operacije/prijavi_se.php',
+                type: 'POST',
+                data: { korisnicko_ime: korisnicko_ime, lozinka: lozinka },
+                success: function (tekst) {
+                    console.log(tekst);
+                    if (tekst == "Pogresno korisnicko ime ili lozinka") {
+                        $('#feedback').html(tekst);
+                    } else {
+                        window.location.replace("http://localhost/automobili/profile.php");
+                    }
+                }
+            });
+        });
+    });
+</script>

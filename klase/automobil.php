@@ -1,40 +1,44 @@
 <?php
-class Igrac{
+class Automobil
+{
     private $brend;
     private $model;
     private $opis;
     private $url;
     private $vlasnik;
     private $karoserija;
-    public function __construct(string $brend, strin $model, string $opis, string $url, Korsnik $vlasnik, Karoserija $karoserija)
+    public function __construct(string $brend, string $model, string $opis, string $url, Korisnik $vlasnik, Karoserija $karoserija)
     {
-        $this->brend=$brend;
-        $this->model=$model;
-        $this->opis=$opis;
-        $this->url=$url;
-        $this->vlasnik=$vlasnik;
-        $this->karoserija=$karoserija;
-
+        $this->brend = $brend;
+        $this->model = $model;
+        $this->opis = $opis;
+        $this->url = $url;
+        $this->vlasnik = $vlasnik;
+        $this->karoserija = $karoserija;
     }
 
-    function getBrend(){
+    function getBrend()
+    {
         return $this->brend;
     }
-    function getModel(){
+    function getModel()
+    {
         return $this->model;
     }
-    function getOpis(){
+    function getOpis()
+    {
         return $this->opis;
     }
-    function getUrl(){
+    function getUrl()
+    {
         return $this->url;
     }
-    function getVlasnik(){
+    function getVlasnik()
+    {
         return $this->vlasnik;
     }
-    function getKaroserija(){
+    function getKaroserija()
+    {
         return $this->karoserija;
     }
 }
-
-?>

@@ -1,0 +1,140 @@
+body {
+    background-color: #ffff4d;
+    margin:0;
+  }
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  .searchTerm {
+    width: 100%;
+    border: 3px solid #020202;
+    border-right: none;
+    padding: 1px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+  }
+  
+  .wrap{
+    width: 40%;
+    position: absolute;
+    top: 12%;
+    left: 45%;
+    transform: translate(-50%, -5%);
+  }
+  
+  
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+    width: 60vw;
+    margin: 50px auto;
+    background-color: white;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+  
+  .car {
+    height: 25vh;
+    position: relative;
+    z-index: 0;
+  }
+  
+  .car-name h4{
+    position: absolute;
+    bottom: -0.3%;
+    left: 10%;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+    width: 90%;
+    padding: 0;
+  }
+  
+  .car-year h4{
+    position: absolute;
+    bottom: -10%;
+    left: 10%;
+    background-color: black;
+    opacity: 0.7;
+    color: white;
+    width: 90%;
+    padding: 0;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 2px 10px;
+    overflow: hidden;
+    background-color: #000;
+    margin-top: 0;
+    display: grid;
+    grid-template-columns: 20vw 57vw 1fr 12vw;
+  }
+  
+  
+  li.image {
+    grid-column: 2/3;
+  }
+  
+  li img{
+    height: 50px;
+    width: 6vw;
+  }
+  
+  @media screen and (max-width: 1250px) {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 15px;
+      width: 60vw;
+      margin: 50px auto;
+    }
+  
+    li.register,li.login,li.purchase {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 700px) {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 15px;
+      width: 70vw;
+      margin: 50px auto;
+    }
+  
+    li.register,li.login,li.purchase {
+      display: none;
+    }
+
+    li#logout {
+      display: none;
+    }
+  }
+  
+  @media screen and (max-width: 440px) {
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-gap: 15px;
+      width: 80vw;
+      margin: 50px auto;
+    }
+  
+    li.register,li.login,li.purchase {
+      display: none;
+    }
+
+    li#logout {
+      display: none;
+    }
+  }
+  
